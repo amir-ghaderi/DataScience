@@ -1,0 +1,968 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="icon" href="/static/DataScienceLogo3.png">
+
+<meta charset="UTF-8">
+
+<!-- Set the page to the width of the device and set the zoom level -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- DataTables -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<!-- BootStrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!--Youtube subscribe -->
+<script src="https://apis.google.com/js/platform.js"></script>
+
+<!--Chart.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<title>Master Data Science</title>
+
+<style>
+
+
+.container-fluid{
+width: 70%;
+padding-top:90px;
+}
+
+/* The navigation bar */
+.dsnavbar {
+overflow: hidden;
+background-color: #003F72;
+position: fixed; /* Set the navbar to fixed position */
+top: 0; /* Position the navbar at the top of the page */
+width: 100%; /* Full width */
+height: 64px;
+line-height: 40px;
+z-index:1;
+}
+
+/* Links inside the navbar */
+.dsnavbar a {
+float: right;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+height: 100%;
+}
+
+/* Change background on mouse-over */
+.dsnavbar a:hover {
+background: #ddd;
+color: black;
+}
+
+.menuitems{
+width: 70%;
+margin: 0 auto;
+}
+
+/* The Footer */
+.dsfooter {
+background-color: #003F72;
+width: 100%; /* Full width */
+height:72px;
+line-height: 40px;
+}
+
+.menuitemsfooter{
+width: 70%;
+margin: 0 auto;
+}
+
+
+.dsfooter a {
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+height:64px;
+}
+
+/* Change background on mouse-over */
+.dsfooter a:hover {
+background: #ddd;
+color: black;
+}
+
+
+.logo{
+height:70px;
+width:70px;
+margin-top:5px;
+}
+
+
+.push{
+float: right;
+display: block;
+margin-top:10px;
+height:50px;
+}
+
+
+#headertitle{
+float: left;
+color: #f2f2f2;
+padding-top:15px;
+}
+
+#mainlogo{
+float: left;
+display: block;
+padding-top:2px;
+padding-bottom:10px;
+}
+
+
+#coursetext{
+font-size: 28px;
+white-space:nowrap;
+overflow:hidden;
+color: #003F72;
+margin-left:20px;
+margin-right:20px;
+font-weight: 600;
+font-size: 1.5rem; 
+}
+
+.thumbnailbox{
+    margin-top: 10px;
+    margin-bottom:20px;
+    margin-left: 20px;
+    margin-right:20px;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 280px;
+    /* margin: 0 auto; */
+    width: 380px;
+    height: 1050px;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease-in-out;
+}
+        
+.thumbnailbox:hover{
+    box-shadow: 0 10px 45px rgba(0,0,0,0.9);
+    /* border: 2px solid black; */
+}
+
+#desc{
+font-size: 15px;
+margin-top:20px;
+margin-left:20px;
+margin-right:20px;
+}
+
+.img-thumbnail{
+margin-top:20px;
+margin-bottom:20px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.waves-effect{
+float:right;
+width:80px;
+height: 35px;
+margin-right:20px;
+margin-top:5px;
+box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+transition: box-shadow 0.3s ease-in-out;
+}
+
+.waves-effect:hover{
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#rowtwo{
+    text-align: center;
+}
+
+.row{
+margin-top:20px;
+margin-bottom:20px;
+}
+
+.chapterdetails{
+height:40px;
+}
+
+.chapterdetails:hover{
+background: #ADD8E6;
+}
+
+.chaptertitle{
+color:black;
+float:left;
+padding-top:8px;
+margin-left:10px;
+}
+
+.chapterduration{
+color:black;
+float:right;
+margin-right:25px;
+padding-top:8px;
+
+}
+
+.chapterlogo{
+    float:left;
+    margin-left:25px;
+    padding-top:6px;
+}
+
+.footdetails1{
+    float:left;
+    color: #f2f2f2;
+    margin-right:10px;
+    margin-top:25px;
+    /* padding: 28px 16px; */
+}
+
+.footdetails2{
+    float:left;
+    color: #f2f2f2;
+    margin-left:10px;
+    margin-top:25px;
+    /* padding: 28px 16px; */
+}
+
+.footdetails3{
+    float:right;
+}
+
+
+.divider{
+border-top: 1px solid #337AB7;
+padding-top:10px; 
+width:95%;
+margin: 0 auto; 
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="dsnavbar">
+    <div class="menuitems">
+
+    <div class="push">
+    <div class="youtubesub">
+    <div class="g-ytsubscribe" data-channelid="UC0pUuTF3-qGvt08uSRv5d8Q" data-layout="full" data-theme="dark" data-count="hidden"></div>
+    </div>
+    </div>
+
+    <a href="https://github.com/amir-ghaderi" target="_blank">Github</a>
+    <a href="https://www.linkedin.com/in/amir-ghaderi-650a2aaa/" target="_blank">About Me</a>
+    <a href="/courses.html">Courses</a>
+    <a href="/">Home</a>
+
+
+    <img id='mainlogo' src="/static/DataScienceLogo3.png" class="logo">
+    <h2 id="headertitle">Master Data Science</h2>
+
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+
+<!-- Row Two - Recent Course Layer -->
+<div class='row' id='rowtwo'>
+<div class="col-12">
+<div class="thumbnailbox">
+    <div class="details">
+            <img src="/static/pythonlogo.jpg" class="img-thumbnail" height="140" width="240">
+        <h4 id='coursetext'>Python Basics Tutorial</h4>
+        <p id="desc">Master the basics of programming in python. Learn the backbone of data science.</p>
+    </div>
+
+    <!-- Divider -->
+    <div class='row'>
+        <div class="col-12">
+            <div class="divider"></div>
+        </div>
+    </div>
+
+    <a href="">
+    <div class="chapterdetails">  
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Python3 Download & Install</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>         
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails"> 
+        <div class="chapterlogo">
+            <img src="/static/icon2.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Variable & Types</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>         
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails"> 
+        <div class="chapterlogo">
+            <img src="/static/icon3.svg" height="23" width="23">
+        </div>  
+        <div class="chaptertitle">
+            <h6>Arithmetic Operators</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Additional Operators</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>          
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon2.svg" height="23" width="23">
+        </div>  
+        <div class="chaptertitle">
+            <h6>Lists & tuples</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>          
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails"> 
+        <div class="chapterlogo">
+            <img src="/static/icon3.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Sets & Dictionaries</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>         
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">  
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>String formatting & methods</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon2.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Conditions (if, elif, else)</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon3.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>For Loops</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>While Loops</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Functions</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Dates</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+        <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Classes & Objects </h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+        <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Exception Handling</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Pip install</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+        <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Modules & Packages</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+
+
+
+    <div class="viewbutton">
+        <a href="/chapters/package1/pythonintro1.html" class="waves-effect waves-light btn" style="color:#000000; background-color:#FFD166">View</a>
+    </div>
+</div>
+
+
+
+<div class="thumbnailbox">
+        <div class="details">
+                <img src="/static/pandas_logo.jpg" class="img-thumbnail" height="140" width="240">
+            <h4 id='coursetext'>Pandas Library Tutorial</h4>
+            <p id="desc">Expose yourself to the most important Data Science Python Library. Aquire essential data wrangling and data analysis skills with Pandas.</p>
+        </div>
+
+        <!-- Divider -->
+        <div class='row'>
+            <div class="col-12">
+                <div class="divider"></div>
+            </div>
+        </div>
+    
+        <a href="">
+        <div class="chapterdetails">  
+            <div class="chapterlogo">
+                <img src="/static/icon1.svg" height="23" width="23">
+            </div>
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+
+        <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon1.svg" height="23" width="23">
+            </div> 
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails"> 
+            <div class="chapterlogo">
+                <img src="/static/icon2.svg" height="23" width="23">
+            </div>
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+
+            <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon1.svg" height="23" width="23">
+            </div> 
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>       
+            </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails"> 
+            <div class="chapterlogo">
+                <img src="/static/icon3.svg" height="23" width="23">
+            </div>  
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon1.svg" height="23" width="23">
+            </div>
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>       
+            </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon2.svg" height="23" width="23">
+            </div>  
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails"> 
+            <div class="chapterlogo">
+                <img src="/static/icon3.svg" height="23" width="23">
+            </div> 
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails">  
+            <div class="chapterlogo">
+                <img src="/static/icon1.svg" height="23" width="23">
+            </div>
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon2.svg" height="23" width="23">
+            </div>
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon3.svg" height="23" width="23">
+            </div>
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+    
+        <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon1.svg" height="23" width="23">
+            </div> 
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>        
+            </div>
+        </div>
+        </a>
+    
+    
+        <div class="viewbutton">
+            <a href="" class="waves-effect waves-light btn" style="color:#000000; background-color:#FFD166">View</a>
+        </div>
+    </div>
+
+<div class="thumbnailbox">
+    <div class="details">
+            <img src="static/NumPy_logo.png" class="img-thumbnail" height="140" width="240" style="margin-top:45px;margin-bottom:45px">
+        <h4 id='coursetext'>Numpy Library Tutorial</h4>
+        <p id="desc">Continue to enhance your data science toolkit by enhancing your data wrangling skills by mastering Numpy python library.</p>
+    </div>
+
+    <!-- Divider -->
+    <div class='row'>
+        <div class="col-12">
+            <div class="divider"></div>
+        </div>
+    </div>
+
+    <a href="">
+    <div class="chapterdetails">  
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails"> 
+        <div class="chapterlogo">
+            <img src="/static/icon2.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails"> 
+        <div class="chapterlogo">
+            <img src="/static/icon3.svg" height="23" width="23">
+        </div>  
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>       
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon1.svg" height="23" width="23">
+            </div>
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>       
+            </div>
+        </div>
+    </a>
+
+
+    <a href="">
+        <div class="chapterdetails">
+            <div class="chapterlogo">
+                <img src="/static/icon1.svg" height="23" width="23">
+            </div>
+            <div class="chaptertitle">
+                <h6>Introduction Tutorial</h6>
+            </div>
+            <div class="chapterduration">
+                <h6>8:45</h6>       
+            </div>
+        </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon2.svg" height="23" width="23">
+        </div>  
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails"> 
+        <div class="chapterlogo">
+            <img src="/static/icon3.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">  
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+           <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon2.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon3.svg" height="23" width="23">
+        </div>
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+    <a href="">
+    <div class="chapterdetails">
+        <div class="chapterlogo">
+            <img src="/static/icon1.svg" height="23" width="23">
+        </div> 
+        <div class="chaptertitle">
+            <h6>Introduction Tutorial</h6>
+        </div>
+        <div class="chapterduration">
+            <h6>8:45</h6>        
+        </div>
+    </div>
+    </a>
+
+
+    <div class="viewbutton">
+        <a href="" class="waves-effect waves-light btn" style="color:#000000; background-color:#FFD166">View</a>
+    </div>
+</div>
+
+
+
+</div>
+</div>
+
+
+</div>
+
+<!-- FooterNew -->
+<div class="dsfooter">
+    <div class="menuitemsfooter">
+                
+        <div class="push">
+        <div class="youtubesub">
+        <div class="g-ytsubscribe" data-channelid="UC0pUuTF3-qGvt08uSRv5d8Q" data-layout="full" data-theme="dark" data-count="hidden"></div>
+        </div>
+        </div>
+
+        <div class="footdetails3">
+            <a href="/terms.html">Terms and Conditions</a>
+            <a href="/privacy.html">Privacy</a>
+        </div>
+
+        <div class="footdetails1">
+            <h6>@MasterDataScience 2019</h6>
+        </div>
+
+        <div class="footdetails2">
+            <h6>MasterDataScience@gmail.com</h6>
+        </div> 
+
+    </div>
+</div>
+
+
+
+
+
+<script>
+
+
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,664 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="icon" href="static/bplogo.png">\
+
+<meta charset="UTF-8">
+
+<!-- Set the page to the width of the device and set the zoom level -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- DataTables -->
+<!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->
+<!--<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+
+<!-- BootStrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!--Youtube subscribe -->
+<!--<script src="https://apis.google.com/js/platform.js"></script>-->
+
+<!--Chart.JS -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>-->
+
+<title>BlackPearl Productions</title>
+
+<style>
+
+body{
+  background-color:#000000 
+}
+
+.container-fluid{
+width: 70%;
+padding-top:90px;
+}
+
+/* The navigation bar */
+.dsnavbar {
+overflow: hidden;
+background-color: #404040;
+position: fixed; /* Set the navbar to fixed position */
+top: 0; /* Position the navbar at the top of the page */
+width: 100%; /* Full width */
+height: 64px;
+line-height: 40px;
+z-index:1;
+}
+
+/* Links inside the navbar */
+.dsnavbar a {
+float: right;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+height: 100%;
+}
+
+/* Change background on mouse-over */
+.dsnavbar a:hover {
+background: #ddd;
+color: black;
+}
+
+.menuitems{
+width: 70%;
+margin: 0 auto;
+}
+
+/* The Footer */
+.dsfooter {
+background-color: #404040;
+width: 100%; /* Full width */
+height:72px;
+line-height: 40px;
+}
+
+.menuitemsfooter{
+width: 70%;
+margin: 0 auto;
+}
+
+
+.dsfooter a {
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+height:64px;
+}
+
+/* Change background on mouse-over */
+.dsfooter a:hover {
+background: #ddd;
+color: black;
+}
+
+
+.logo{
+height:70px;
+width:70px;
+margin-top:5px;
+}
+
+
+.push{
+float: right;
+display: block;
+margin-top:10px;
+height:50px;
+}
+
+
+#headertitle{
+float: left;
+color: #f2f2f2;
+padding-top:15px;
+}
+
+#mainlogo{
+float: left;
+display: block;
+padding-top:2px;
+padding-bottom:10px;
+}
+
+#coursetext{
+font-size: 28px;
+white-space:nowrap;
+color:#FFFFFF;
+margin-left:20px;
+margin-right:20px;
+font-weight: 600;
+font-size: 1.5rem; 
+}
+
+.thumbnailbox{
+    margin-top: 20px;
+    margin-bottom:20px;
+    margin-left: 20px;
+    margin-right:20px;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 280px;
+    /* margin: 0 auto; */
+    width: 350px;
+    height: 380px;
+    display: inline-block;
+    box-shadow: 0 3px 12px 	rgb(255,255,250);
+    transition: box-shadow 0.3s ease-in-out;
+}
+        
+.thumbnailbox:hover{
+    box-shadow: 0 7px 25px 	rgb(255,255,255);
+    /* border: 2px solid black; */
+}
+
+#desc{
+font-size: 15px;
+margin-top:20px;
+margin-left:20px;
+margin-right:20px;
+color:#FFFFFF;
+}
+
+.img-thumbnail{
+margin-top:20px;
+margin-bottom:20px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.waves-effect{
+float:right;
+width:80px;
+height: 35px;
+margin-right:20px;
+box-shadow: 0 2px 5px rgb(255,255,250);
+transition: box-shadow 0.3s ease-in-out;
+}
+
+.waves-effect:hover{
+box-shadow: 0 5px 10px rgb(255,255,255);
+}
+
+#rowtwo{
+    text-align: center;
+}
+
+.row{
+margin-top:20px;
+margin-bottom:20px;
+}
+
+
+.divider{
+border-top: 1px solid #FFFFFF;
+padding-top:10px; 
+}
+
+.introtext{
+    float:left;
+}
+
+#introtext1{
+margin-top:10px;
+color: #FFFFFF;
+font-weight: 600;
+font-size: 1.5rem; 
+letter-spacing: 2px;
+}
+
+#introtext2{
+color: #FFFFFF;
+font-weight: 700;
+font-size: 2.0rem; 
+letter-spacing: 0.75px;
+}
+
+#introtext3{
+margin-top:20px;
+color: #FFFFFF;
+font-weight: 700;
+font-size: 1.2rem; 
+letter-spacing: 0.8px;
+}
+
+.programminglogos{
+    float:left;
+    width:100%;
+    height:100%;
+}
+
+.rowheaders{
+color: #FFFFFF;
+font-weight: 1000;
+font-size: 2.0rem; 
+letter-spacing: 1px;
+}
+
+.radiobuttongroup{
+    float:right;
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 1.0rem; 
+    letter-spacing: 1px;
+}
+
+input[type="radio"] {
+    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+    transform: scale(1.5);
+}
+
+.footdetails1{
+    float:left;
+    color: #f2f2f2;
+    margin-right:10px;
+    margin-top:25px;
+    /* padding: 28px 16px; */
+}
+
+.footdetails2{
+    float:left;
+    color: #f2f2f2;
+    margin-left:10px;
+    margin-top:25px;
+    /* padding: 28px 16px; */
+}
+
+.footdetails3{
+    float:right;
+}
+
+#Charttwo{
+    margin-top:25px;
+}
+
+/* contact form */
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */  
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #404040;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #404040;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="dsnavbar">
+<div class="menuitems">
+
+<!-- <div class="push">
+<div class="youtubesub">
+<div class="g-ytsubscribe" data-channelid="UC0pUuTF3-qGvt08uSRv5d8Q" data-layout="full" data-theme="dark" data-count="hidden"></div>
+</div>
+</div> -->
+
+<a href="">Contact Us</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="corporate.html">Corporate</a>
+<a href="realestate.html">Real Estate</a>
+<a href="weddings.html">Weddings</a>
+<a href="">Home</a>
+
+
+<img id='mainlogo' src="static/bplogo.png" class="logo">
+<h2 id="headertitle">BlackPearl Productions</h2>
+
+</div>
+</div>
+
+
+
+<div class="container-fluid">
+
+
+<!-- Row One - Intro Layer -->
+<div class='row'>
+<div class="col-6">
+    <div class='introtext'>
+        <h4 id='introtext1'>Toronto's Trusted production Company</h4>
+        <h1 id='introtext2'>Let us capture the moments that matter</h1>
+        <p id='introtext3'>BlackPearl Productions is a team of high end photographers and cinematographers who strive for perfection with every client. We are revolutionising the cinematography/photograpyhy business through our trademark creativity and personal touch we emphasize on each and every masterpiece that we produce.</p>
+        <div class="coursebutton">
+        <a href="" class="waves-effect waves-light btn" style="color:#f2f2f2; background-color:#404040; width:120px; margin-right:30px; margin-bottom:20px;">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <!-- <div class="programminglogos"><img src="static/weddingphoto2.jpg" class="img-fluid" alt="Responsive image" id='programminglogoimage'></div> -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="static/weddingphoto4.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="static/weddingphoto5.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="static/weddingphoto6.jpg" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+</div>
+      
+</div>
+
+<!-- Divider -->
+<div class='row'>
+<div class="col-12">
+<div class="divider"></div>
+<h2 class="rowheaders">Galleries</h2>
+</div>
+</div>
+
+<!-- Row Two - Recent Course Layer -->
+<div class='row' id='rowtwo'>
+<div class="col-12">
+<div class="thumbnailbox">
+    <div class="details">
+        <img src="static/weddingphoto3.jpg" class="img-thumbnail" height="140" width="240">
+        <h4 id='coursetext'>Weddings</h4>
+        <p id="desc">When you look back on your wedding day, you want to be able to say you were satisfied with the film/photos</p>
+
+        <div class="viewbutton">
+        <a href="" class="waves-effect waves-light btn" style="color:#f2f2f2; background-color:#404040">View</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="thumbnailbox">
+    <div class="details">
+        <img src="static/realestate1.jpg" class="img-thumbnail" height="140" width="240">
+        <h4 id='coursetext'>Real Estate</h4>
+        <p id="desc">Nothing sells a property more effectively than professional grade cinematography and photograpyhy</p>
+        <div class="viewbutton">
+        <a href="" class="waves-effect waves-light btn" style="color:#f2f2f2; background-color:#404040">View</a>
+        </div>
+    </div>
+</div>
+
+<div class="thumbnailbox">
+    <div class="details">
+        <img src="static/corporate4.jpg" class="img-thumbnail" height="140" width="240">
+        <h4 id='coursetext'>Corporate</h4>
+        <p id="desc">Alter perceptions and grow your business by leveraging the power of corporate photography</p>
+        
+        <div class="viewbutton">
+        <a href="" class="waves-effect waves-light btn" style="color:#f2f2f2; background-color:#404040;margin-bottom:10px;">View</a>
+        </div>
+        
+    </div>
+</div>
+</div>
+</div>
+
+<!-- Divider -->
+<div class='row'>
+    <div class="col-12">
+    <div class="divider"></div>
+    <h2 class="rowheaders">Contact Us</h2>
+    </div>
+</div>
+
+
+<div class="container">
+        <form action="action_page.php">
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+          <label for="lname">Phone Number</label>
+          <input type="text" id="pnumber" name="phonenumber" placeholder="Your Phone Number..">
+      
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      
+          <input type="submit" value="Submit">
+      
+        </form>
+      </div>
+
+</div>
+
+
+
+<!-- FooterNew -->
+<div class="dsfooter">
+    <div class="menuitemsfooter">
+                
+        <!-- <div class="push">
+        <div class="youtubesub">
+        <div class="g-ytsubscribe" data-channelid="UC0pUuTF3-qGvt08uSRv5d8Q" data-layout="full" data-theme="dark" data-count="hidden"></div>
+        </div>
+        </div> -->
+
+        <div class="footdetails3">
+            <a href="/terms.html">Terms and Conditions</a>
+            <a href="/privacy.html">Privacy</a>
+        </div>
+
+        <div class="footdetails1">
+            <h6>@BlackPearlProductions 2019</h6>
+        </div>
+
+        <div class="footdetails2">
+            <h6>BlackPearlProductions@gmail.com</h6>
+        </div> 
+
+    </div>
+</div>
+
+
+<!-- Footer -->
+<!-- <div class='row'>
+<div class="col-12">
+<div class="footer"><p>Terms and Conditions, Privacy Policy, Email for Question</p></div>
+</div>
+</div> -->
+
+
+<script>
+
+
+// // Chart One
+// var ctx = document.getElementById('Chartone').getContext('2d');
+
+// var chartone = new Chart(ctx, {
+//     // The type of chart we want to create
+//     type: 'horizontalBar',
+
+//     // The data for our dataset
+//     data: {
+//         labels: ["Python", "RapidMiner", "R", "SQL", "Excel", "Anaconda", "Tensorflow","Tableau","Scikit-Learn","Keras","Apache Spark"],
+//         datasets: [{
+//             label:"%",
+//             backgroundColor: ['#003F72','#004680','#005499','#0062b3','#0070cc','#007ee6','#008cff','#1a98ff','#33a3ff','#4dafff','#66baff'],
+//             borderColor: '#000000',
+//             data: [65, 52, 48, 40, 39, 33, 29, 26, 24, 22, 21],
+//         }]
+//     },
+
+//     // Configuration options go here
+//     options: {
+//         legend: {display: false},
+//         scales: {
+//         yAxes: [{ticks: {fontSize: 12,fontColor: 'black'}}],
+//         xAxes: [{ticks: {fontSize: 12,fontColor: 'black',suggestedMax:70}}]
+//         },
+//         title: {
+//             display: true,
+//             fontSize: 20,
+//             text: 'KDnuggets: Data Science and Analytics Tools',
+//             fontColor: 'black'
+//         },
+//         events: [],
+//         animation: {
+//         duration: 1,
+//         onComplete: function () {
+//             var chartInstance = this.chart,
+//                 ctx = chartInstance.ctx;
+//             ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+//             ctx.textAlign = 'center';
+//             ctx.textBaseline = 'bottom';
+//             ctx.fillStyle = '#000000';
+//             ctx.font = "20px Arial";
+
+//             this.data.datasets.forEach(function (dataset, i) {
+//                 var meta = chartInstance.controller.getDatasetMeta(i);
+//                 meta.data.forEach(function (bar, index) {
+//                     var data = dataset.data[index];                            
+//                     ctx.fillText(data+'%', bar._model.x + 30, bar._model.y + 8);
+//                 });
+//             });
+//         }
+//     }
+
+//     }
+// });
+
+// // Chart Two
+// var ctx = document.getElementById('Charttwo').getContext('2d');
+
+// var charttwo = new Chart(ctx, {
+//     // The type of chart we want to create
+//     type: 'horizontalBar',
+
+//     // The data for our dataset
+//     data: {
+//         labels: ["Big Data Engineer", "Full Stack Data Scientist", "Principal Data Scientist", "Machine Learning Engineer", "Hadoop System Administrator", "Data Scientist", "Python Developer","JavaScript Programmer","Full Stack Developer","Java Developer","Front End Developer","Application Developer","Data Engineer","Database Admin","Data Analyst"],
+//         datasets: [{
+//             label:"$",
+//             backgroundColor: ['#003F72','#004680','#005499','#0062b3','#0070cc','#007ee6','#008cff','#1a98ff','#33a3ff','#4dafff','#66baff','#80c6ff','#99d1ff','#b3ddff','#cce8ff'],
+//             borderColor: '#000000',
+//             data: [140750, 120606, 118603, 115571, 114352, 95208, 90901, 90776, 84493, 83372, 79723,79446,78752,66544,51000],
+//         }]
+//     },
+
+//     // Configuration options go here
+//     options: {
+    
+//         legend: {display: false},
+//         title: {
+//             display: true,
+//             fontSize: 20,
+//             text: 'Data Science and Analytics Salaries (USD) 2019',
+//             fontColor: 'black'
+//         },
+//         scales: {
+//         yAxes: [{ticks: {fontSize: 12,fontColor: 'black'}}],
+//         xAxes: [{ticks: {fontSize: 12,fontColor: 'black',suggestedMax:160000}}]
+//         },
+//         events: [],
+//         animation: {
+//         duration: 1,
+//         onComplete: function () {
+//             var chartInstance = this.chart,
+//                 ctx = chartInstance.ctx;
+//             ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+//             ctx.textAlign = 'center';
+//             ctx.textBaseline = 'bottom';
+//             ctx.fillStyle = '#000000';
+//             ctx.font = "20px Arial";
+
+//             this.data.datasets.forEach(function (dataset, i) {
+//                 var meta = chartInstance.controller.getDatasetMeta(i);
+//                 meta.data.forEach(function (bar, index) {
+//                     var data = dataset.data[index];                            
+//                     ctx.fillText('$'+data, bar._model.x + 45, bar._model.y + 8);
+//                 });
+//             });
+//         }
+//     }
+//     }
+// });
+
+
+// // Year functions
+
+// function yearfunctionone(){
+//     chartone.data.datasets[0]["data"] = [65, 52, 48, 40, 39, 33, 29, 26, 24, 22, 21];
+//     chartone.update();
+
+// }
+
+// function yearfunctiontwo(){
+//     chartone.data.datasets[0]["data"] = [59,31,56,39,31,25,23,21,22,11,21];
+//     chartone.update();
+
+// }
+
+// function yearfunctionthree(){
+//     chartone.data.datasets[0]["data"] = [52,32,55,40,38,18,8,21,19,5,21];
+//     chartone.update();
+// }
+
+</script>
+
+
+</body>
+</html>
+

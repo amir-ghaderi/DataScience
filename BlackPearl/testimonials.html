@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="icon" href="static/bplogo.png">\
+
+<meta charset="UTF-8">
+
+<!-- Set the page to the width of the device and set the zoom level -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- DataTables -->
+<!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->
+<!--<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+
+<!-- BootStrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!--Youtube subscribe -->
+<!--<script src="https://apis.google.com/js/platform.js"></script>-->
+
+<!--Chart.JS -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>-->
+
+<!-- Baguettebox -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+
+<title>BlackPearl Productions</title>
+
+<style>
+
+body{
+  background-color:#000000 
+}
+
+.container-fluid{
+width: 70%;
+padding-top:70px;
+}
+
+/* The navigation bar */
+.dsnavbar {
+overflow: hidden;
+background-color: #404040;
+position: fixed; /* Set the navbar to fixed position */
+top: 0; /* Position the navbar at the top of the page */
+width: 100%; /* Full width */
+height: 64px;
+line-height: 40px;
+z-index:1;
+}
+
+/* Links inside the navbar */
+.dsnavbar a {
+float: right;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+height: 100%;
+}
+
+/* Change background on mouse-over */
+.dsnavbar a:hover {
+background: #ddd;
+color: black;
+}
+
+.menuitems{
+width: 70%;
+margin: 0 auto;
+}
+
+/* The Footer */
+.dsfooter {
+background-color: #404040;
+width: 100%; /* Full width */
+height:72px;
+line-height: 40px;
+}
+
+.menuitemsfooter{
+width: 70%;
+margin: 0 auto;
+}
+
+
+.dsfooter a {
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+height:64px;
+}
+
+/* Change background on mouse-over */
+.dsfooter a:hover {
+background: #ddd;
+color: black;
+}
+
+
+.logo{
+height:70px;
+width:70px;
+margin-top:5px;
+}
+
+
+
+#headertitle{
+float: left;
+color: #f2f2f2;
+padding-top:15px;
+}
+
+#mainlogo{
+float: left;
+display: block;
+padding-top:2px;
+padding-bottom:10px;
+}
+
+
+
+#rowtwo{
+    text-align: center;
+}
+
+.row{
+margin-bottom:20px;
+text-align: center;
+}
+
+
+
+
+.footdetails1{
+    float:left;
+    color: #f2f2f2;
+    margin-right:10px;
+    margin-top:25px;
+    /* padding: 28px 16px; */
+}
+
+.footdetails2{
+    float:left;
+    color: #f2f2f2;
+    margin-left:10px;
+    margin-top:25px;
+    /* padding: 28px 16px; */
+}
+
+.footdetails3{
+    float:right;
+}
+
+.thumbnail{
+  width: 300px;
+  height: 150px;
+}
+
+.hoverbox {
+  width: 300px;
+  height: 150px;
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+
+}
+
+/* [2] Transition property for smooth transformation of images */
+.hoverbox img {
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.hoverbox:hover img {
+  transform: scale(1.5);
+}
+
+
+.divider{
+border-top: 1px solid #FFFFFF;
+padding-top:10px; 
+}
+
+#fancytext{
+color: #FFFFFF;
+font-weight: 700;
+font-size: 1.2rem; 
+letter-spacing: 0.8px;
+margin-bottom: 20px;
+}
+
+.clientfeedbackbox{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="dsnavbar">
+<div class="menuitems">
+
+<!-- <div class="push">
+<div class="youtubesub">
+<div class="g-ytsubscribe" data-channelid="UC0pUuTF3-qGvt08uSRv5d8Q" data-layout="full" data-theme="dark" data-count="hidden"></div>
+</div>
+</div> -->
+
+<a href="">Contact Us</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="corporate.html">Corporate</a>
+<a href="realestate.html">Real Estate</a>
+<a href="weddings.html">Weddings</a>
+<a href="index.html">Home</a>
+
+
+<img id='mainlogo' src="static/bplogo.png" class="logo">
+<h2 id="headertitle">BlackPearl Productions</h2>
+
+</div>
+</div>
+
+<div class="container-fluid">
+
+<!-- Divider -->
+<div class='row'>
+
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+    
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+  
+    <div class="clientfeedbackbox">
+      <p id="fancytext" style="font-family:verdana;">"You absoultely killed our wedding, holy shit you guys are awesome. Please take my dolla dolla bills!!!"</p>
+    </div>
+
+</div>
+
+  
+</div>
+
+
+
+
+
+
+<!-- FooterNew -->
+<div class="dsfooter">
+    <div class="menuitemsfooter">
+                
+        <!-- <div class="push">
+        <div class="youtubesub">
+        <div class="g-ytsubscribe" data-channelid="UC0pUuTF3-qGvt08uSRv5d8Q" data-layout="full" data-theme="dark" data-count="hidden"></div>
+        </div>
+        </div> -->
+
+        <div class="footdetails3">
+            <a href="/terms.html">Terms and Conditions</a>
+            <a href="/privacy.html">Privacy</a>
+        </div>
+
+        <div class="footdetails1">
+            <h6>@BlackPearlProductions 2019</h6>
+        </div>
+
+        <div class="footdetails2">
+            <h6>BlackPearlProductions@gmail.com</h6>
+        </div> 
+
+    </div>
+</div>
+
+
+<!-- Footer -->
+<!-- <div class='row'>
+<div class="col-12">
+<div class="footer"><p>Terms and Conditions, Privacy Policy, Email for Question</p></div>
+</div>
+</div> -->
+
+
+<script>
+
+</script>
+
+
+</body>
+</html>
+

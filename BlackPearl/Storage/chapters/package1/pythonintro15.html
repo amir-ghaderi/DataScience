@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="icon" href="/static/DataScienceLogo3.png">
+
+<meta charset="UTF-8">
+
+<!-- Set the page to the width of the device and set the zoom level -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- DataTables -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<!-- BootStrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!--Youtube subscribe -->
+<script src="https://apis.google.com/js/platform.js"></script>
+
+<!--Chart.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<!-- Data Camp Widget -->
+<script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+
+<title>Master Data Science</title>
+
+<style>
+
+body{
+z-index: -1;
+position: relative;
+}
+
+.footer {
+border-top: 1px solid #337AB7;
+padding-top:10px;
+}
+
+
+.container-fluid{
+width: 70%;
+padding-top:90px;
+}
+
+/* The navigation bar */
+.dsnavbar {
+overflow: hidden;
+background-color: #003F72;
+position: fixed; /* Set the navbar to fixed position */
+top: 0; /* Position the navbar at the top of the page */
+width: 100%; /* Full width */
+height: 64px;
+line-height: 40px;
+z-index:1;
+}
+
+/* Links inside the navbar */
+.dsnavbar a {
+float: right;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+height: 100%;
+}
+
+/* Change background on mouse-over */
+.dsnavbar a:hover {
+background: #ddd;
+color: black;
+}
+
+.menuitems{
+width: 70%;
+margin: 0 auto;
+}
+
+/* The Footer */
+.dsfooter {
+background-color: #003F72;
+width: 100%; /* Full width */
+height:72px;
+line-height: 40px;
+}
+
+.menuitemsfooter{
+width: 70%;
+margin: 0 auto;
+}
+
+
+.dsfooter a {
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+height:64px;
+}
+
+/* Change background on mouse-over */
+.dsfooter a:hover {
+background: #ddd;
+color: black;
+}
+
+
+.logo{
+height:70px;
+width:70px;
+margin-top:5px;
+}
+
+
+.push{
+float: right;
+display: block;
+margin-top:10px;
+height:50px;
+}
+
+
+#headertitle{
+float: left;
+color: #f2f2f2;
+padding-top:15px;
+}
+
+#mainlogo{
+float: left;
+display: block;
+padding-top:2px;
+padding-bottom:10px;
+}
+
+
+.row{
+margin-top:20px;
+margin-bottom:20px;
+}
+
+.footdetails1{
+    float:left;
+    color: #f2f2f2;
+    margin-right:10px;
+    margin-top:25px;
+    /* padding: 28px 16px; */
+}
+
+.footdetails2{
+    float:left;
+    color: #f2f2f2;
+    margin-left:10px;
+    margin-top:25px;
+    /* padding: 28px 16px; */
+}
+
+.footdetails3{
+    float:right;
+}
+
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+  padding-top: 15px;
+  z-index: -1;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #111;
+  display: block;
+}
+
+.sidenav a:hover {
+    background-color: #555;
+    color: white;
+}
+
+#selectedsidebar{
+    background-color: #555;
+    color: white;
+}
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 14px;}
+}
+
+@media screen and (max-width: 1600px) {
+  .sidenav a {font-size: 14px;}
+  .sidenav {width:200px;}
+}
+
+#row1{
+    text-align: center;
+}
+
+.content{
+margin: 0 auto; 
+}
+
+.divider{
+border-top: 1px solid #337AB7;
+padding-top:10px; 
+width:80%;
+margin: 0 auto; 
+}
+
+.rowheaders{
+color: #003F72;
+font-weight: 1000;
+font-size: 2.0rem; 
+letter-spacing: 1px;
+width:80%;
+margin: 0 auto; 
+margin-bottom:20px;
+}
+
+.waves-effect{
+float:right;
+width:80px;
+height: 35px;
+box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+transition: box-shadow 0.3s ease-in-out;
+}
+
+.waves-effect:hover{
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#sidebarheader{
+margin-left:10%;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="dsnavbar">
+    <div class="menuitems">
+
+    <div class="push">
+    <div class="youtubesub">
+    <div class="g-ytsubscribe" data-channelid="UC0pUuTF3-qGvt08uSRv5d8Q" data-layout="full" data-theme="dark" data-count="hidden"></div>
+    </div>
+    </div>
+
+    <a href="https://github.com/amir-ghaderi" target="_blank">Github</a>
+    <a href="https://www.linkedin.com/in/amir-ghaderi-650a2aaa/" target="_blank">About Me</a>
+    <a href="/courses.html">Courses</a>
+    <a href="/">Home</a>
+
+
+    <img id='mainlogo' src="/static/DataScienceLogo3.png" class="logo">
+    <h2 id="headertitle">Master Data Science</h2>
+
+    </div>
+</div>
+
+<!-- Side Navigation Bar -->
+<div class="sidenav">
+    <h6 id="sidebarheader">Python Basics Tutorial</h6>
+    <div class="divider"></div>
+    <a href="/chapters/package1/pythonintro1.html">Python3 Download & Install</a>
+    <a href="/chapters/package1/pythonintro2.html">Variable & Types</a>
+    <a href="/chapters/package1/pythonintro3.html" >Arithmetic Operators</a>
+    <a href="/chapters/package1/pythonintro4.html" >Additional Operators</a>
+    <a href="/chapters/package1/pythonintro5.html" >Lists & Tuples</a>
+    <a href="/chapters/package1/pythonintro6.html" >Sets & Dictionaries</a>
+    <a href="/chapters/package1/pythonintro7.html">String Formatting & Methods</a>
+    <a href="/chapters/package1/pythonintro8.html" >Conditions (if, elif, else)</a>
+    <a href="/chapters/package1/pythonintro9.html" >For Loops</a>
+    <a href="/chapters/package1/pythonintro10.html" >While Loops</a>
+    <a href="/chapters/package1/pythonintro11.html" >Functions</a>
+    <a href="/chapters/package1/pythonintro12.html">Dates</a>
+    <a href="/chapters/package1/pythonintro13.html" >Classes & Objects</a>
+    <a href="/chapters/package1/pythonintro14.html" >Exception Handling</a>
+    <a href="/chapters/package1/pythonintro15.html" id='selectedsidebar'>Pip install</a>
+    <a href="/chapters/package1/pythonintro16.html">Modules & Packages</a>
+</div>
+
+
+
+
+<div class="container-fluid">
+    
+<!--     
+    <div id ="row2" class ="row">
+        <div class = "content"> 
+                <iframe width="840" height="473" src="https://www.youtube.com/embed/eyr9hFxGIGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+     </div> -->
+
+    <div id ="row1" class ="row">
+        <div class = "content"> 
+            <object type="text/html" data="frames/frame2.html" width="1300px" height="2600px"></object>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class='row'>
+        <div class="col-12">
+            <div class="divider"></div>
+            <h2 class="rowheaders">Exercise</h2>
+        </div>
+    </div>
+
+
+    <div id ="row3" class ="row">
+        <div class = "content"> 
+            <div data-datacamp-exercise data-lang="python" data-height="500" style="width:1100px; height:500px;">
+                <code data-type="pre-exercise-code">
+                    # This will get executed each time the exercise gets initialized
+                </code>
+                <code data-type="sample-code">
+                    # Create a variable called VAR1 and assign a value of 10 to it
+                    # Print the variable
+
+                </code>
+                <code data-type="solution">
+                    # Create a variable called VAR1 and assign a value of 10 to it 
+                    VAR1 = 10
+                    print(VAR1)
+                </code>
+                <code data-type="sct">
+                    test_output_contains('10')
+                    success_msg("Great job!")
+                </code>
+                <div data-type="hint">VAR1 = 10</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class='row'>
+        <div class="col-12">
+            <div class="divider">
+
+            <!-- Next and Back buttons -->
+            <div class="viewbutton">
+                    <a href="" class="waves-effect waves-light btn" style="color:#000000; background-color:#FFD166;margin-bottom:10px;float:right;">Next</a>
+            </div>
+            <div class="viewbutton">
+                    <a href="" class="waves-effect waves-light btn" style="color:#000000; background-color:#FFD166;margin-bottom:10px;float:left;">Back</a>
+            </div>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- FooterNew -->
+<div class="dsfooter">
+    <div class="menuitemsfooter">
+                
+        <div class="push">
+        <div class="youtubesub">
+        <div class="g-ytsubscribe" data-channelid="UC0pUuTF3-qGvt08uSRv5d8Q" data-layout="full" data-theme="dark" data-count="hidden"></div>
+        </div>
+        </div>
+
+        <div class="footdetails3">
+            <a href="/terms.html">Terms and Conditions</a>
+            <a href="/privacy.html">Privacy</a>
+        </div>
+
+        <div class="footdetails1">
+            <h6>@MasterDataScience 2019</h6>
+        </div>
+
+        <div class="footdetails2">
+            <h6>MasterDataScience@gmail.com</h6>
+        </div> 
+
+    </div>
+</div>
+
+
+<script>
+
+</script>
+
+
+</body>
+</html>
+
