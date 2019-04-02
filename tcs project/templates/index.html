@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="icon" href="/static/DataScienceLogo3.png">
+
+<meta charset="UTF-8">
+
+<!-- Set the page to the width of the device and set the zoom level -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- DataTables -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<!-- BootStrap -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+
+<!--Chart.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<title>Machine Learning TCS Project</title>
+
+<style>
+
+
+.container-fluid{
+width: 70%;
+padding-top:20px;
+}
+
+
+#headertitle{
+float: left;
+padding-top:15px;
+}
+
+.bucket{
+margin-left:20px;
+margin-top:50px;
+}
+
+
+.item1{
+margin-top:5px;
+float:left;
+}
+
+
+.item2{
+float:left;
+margin-left:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+<div class="row">
+<h2 id="headertitle">TCS Employee Support Prediction Model</h2>
+</div>
+
+<div class="row">
+<div class="panel panel-primary">
+    <div class="panel-heading">Random Forest Regression Model</div>
+    <div class="panel-body">
+
+    <div class="row">
+    <div class='col-md-2'>
+        <h5>Business Complexity</h5>
+        <select name="businesscomplexity" style="width:80px;" id='id1'>
+            <option disabled selected value>select</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
+
+    <div class='col-md-2'>
+        <h5>Business Criticality</h5>
+        <select name="businesscriticality" style="width:80px;" id='id2'>
+            <option disabled selected value>select</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
+
+    <div class='col-md-2'>
+        <h5>Technological Complexity</h5>
+        <select name="technologicalcomplexity" style="width:80px;" id='id3'>
+            <option disabled selected value>select</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
+
+    <div class='col-md-2'>
+        <h5>Incidents/Month</h5>
+        <input type="text" name="incidents" value="Enter Value" style="width:80px;" id='id4'><br>
+    </div>
+
+    <div class='col-md-2'>
+        <h5>Releases/Month</h5>
+        <input type="text" name="releases" value="Enter Value" style="width:80px;" id='id5'><br>
+    </div>
+
+    <div class='col-md-2'>
+        <h5>Interfaces</h5>
+        <input type="text" name="interfaces" value="Enter Value" style="width:80px;" id='id6'><br>
+    </div>
+    </div>
+
+    <div class='row'>
+
+    <div class="col-md-12">
+
+        <div class='bucket'>
+
+            <div class='item1'>
+            <input id='submitinput' type="submit" value="Submit" style="display: inline-block" onclick="javaScript:callmodel();">
+            </div>
+
+            <div class='item2'>
+            <h4 id='textfield1'>Number of Support Required: </h4>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<script>
+
+function callmodel() {
+
+var businesscomplexity = document.getElementById('id1').value
+var businesscriticality = document.getElementById('id2').value
+var technologicalcomplexity = document.getElementById('id3').value
+var incidents = document.getElementById('id4').value
+var releases = document.getElementById('id5').value
+var interfaces =document.getElementById('id6').value
+
+            $.ajax({
+            type: 'POST',
+            url: '/randomforestmodel',
+            data: JSON.stringify({'businesscomplexity': businesscomplexity ,'businesscriticality':businesscriticality,'technologicalcomplexity':technologicalcomplexity,'releases':releases,'incidents':incidents,'interfaces':interfaces }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response);
+                }
+            });
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>
+
